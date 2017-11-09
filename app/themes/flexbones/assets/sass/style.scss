@@ -1,22 +1,13 @@
 /*!
-Theme Name:     Flexbones
-Theme URI:      http://github.com/roikles/flexbones
-Description:    A responsive wordpress starter theme
-Author:         Rory Ashford
-Author URI:     http://roikles.com
-Version:        3.0.0
-License:        All work is the property of Rory Ashford
+Theme Name:     Flex
+Theme URI:      http://github.com/guccipizza/flexbones-modification
+Description:    This is a modified Flexbones theme, branched from Roikles' Flexbones. It was sending notifications for every change I made so I made a fresh REPO with no additional contributors.
+Author:         Olly Pittaway
+Author URI:     https://ollypittaway.co.uk
+Version:        1.0.0
+License:        MIT
 License URI:    n/a
 */
-
-/*!
-    ________          __                         
-   / ____/ /__  _  __/ /_  ____  ____  ___  _____
-  / /_  / / _ \| |/_/ __ \/ __ \/ __ \/ _ \/ ___/
- / __/ / /  __/>  </ /_/ / /_/ / / / /  __(__  ) 
-/_/   /_/\___/_/|_/_.___/\____/_/ /_/\___/____/  
-                                                 
- */
 
 ////
 // Global Configuration
@@ -30,11 +21,9 @@ License URI:    n/a
 ////
 @import "tools/_clearfix";
 @import "tools/_at-breakpoint";
-@import "tools/_gridtacular-flexbox";
 @import "tools/_rem";
-@import "tools/_fluid-bg";
-@import "tools/_aspect-ratios";
-@import "tools/_clip-path";
+@import "tools/_flexi-grid";
+
 
 ////
 // Globals
@@ -43,14 +32,12 @@ License URI:    n/a
 @import "globals/_reset";
 @import "globals/_html-body";
 @import "globals/_wrapper";
-@import "globals/_grid-setup";
 @import "globals/_typography";
 @import "globals/_buttons";
 @import "globals/_clear";
 @import "globals/_forms";
 @import "globals/_imgs";
 @import "globals/_navigation";
-@import "globals/_tables";
 
 ////
 // Components

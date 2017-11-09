@@ -11,7 +11,7 @@
     "scriptsmin": "app/themes/flexbones/scripts.min.js",
     "scriptsfolder": "app/themes/flexbones/assets/js",
     "watch": "app/themes/flexbones/",
-    "watchproxy": "localhost/flexbones"
+    "watchproxy": "localhost/flex"
   },
   "scripts": {
     "sass:css": "node-sass $npm_package_config_sass $npm_package_config_css --output-style expanded",
@@ -24,7 +24,7 @@
     "watch:sass": "fsmonitor -d $npm_package_config_sassfolder -q '+*.scss' npm run -s sass",
     "watch:js": "fsmonitor -d $npm_package_config_scriptsfolder -q '+*.js' npm run -s js",
     "browsersync": "browser-sync start --files $npm_package_config_theme'*, !'$npm_package_config_theme'**/*.scss, !.git/*, '$npm_package_config_theme'**/*' --no-open --proxy $npm_package_config_watchproxy",
-    "watch": "npm run -s browsersync & npm run -s watch:sass & npm run -s watch:js",
+    "watch": "npm run -s browsersync & npm run -s watch:sass & npm run -s watch:js"
   },
   "devDependencies": {
     "browserify": "^12.0.1",
