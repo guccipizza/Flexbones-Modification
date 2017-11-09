@@ -1,0 +1,14 @@
+//This is a modified version of Rory's clip path mixin
+//
+//It uses a clip path to make a small indentation at the bottom of the parent,
+//
+//Allowing background images and gradients to be carried over
+
+@mixin down_arrow($width: 5%, $height: 8%){
+  $height: 100% - $height;
+  $left_position: 50% - ($width / 2);
+  $right_position: 50% + ($width / 2);
+  clip-path: polygon(0 0, 100% 0, 100% $height, $right_position $height, 50% 100%, $left_position $height, 0 $height);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% $height, $right_position $height, 50% 100%, $left_position $height, 0 $height);
+  margin-bottom: -($height / 2);
+}
