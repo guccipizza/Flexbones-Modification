@@ -1,12 +1,22 @@
-global.localhostProxy = "localhost/gulp";
+global.localhostProxy = "localhost/port";
+global.themePath = "app/themes/flexbones";
 
-global.minJs = "app/themes/flexbones";
-global.minifiedJsName = "index.min.js";
-global.jsFolder = "app/themes/flexbones/components/*";
+global.minifiedJsName = "scripts.min.js";
+global.minifiedCssName = "min-style.css"; 
+global.jsFolder = themePath + "/components/*";
+global.scssFolder = themePath + "/assets/sass";
 
-global.minCss = "app/themes/flexbones";
-global.minifiedCssName = "index.min.css"; 
-global.scssFolder = "app/themes/flexbones/assets/sass";
+
+
+/******************************************/
+/*	  _____ _    _ _      _____           */
+/*	 / ____| |  | | |    |  __ \          */
+/*	| |  __| |  | | |    | |__) |         */
+/*	| | |_ | |  | | |    |  ___/          */
+/*	| |__| | |__| | |____| |              */
+/* 	 \_____|\____/|______|_|              */
+/*                      				  */
+/******************************************/
 
 //Dependencies
 var gulp = require('gulp'),
@@ -23,9 +33,10 @@ gulp.task('default', ['watch']);
 
 //Watch for changes on files
 gulp.task('watch', function(){
-	browserSync.init({ proxy: localhostProxy });
+	browserSync.init({ proxy: localhostProxy, files: ["**/*.php"] });
 	gulp.watch(jsFolder + "/*.js", ['minJs']); //watch all js files
-	gulp.watch(minCss + "/**/*.scss", ['scssCompile']); //watch all scss files 
+	gulp.watch(themePath + "/**/*.scss", ['scssCompile']); //watch all scss files
+	gulp.watch(localhostProxy + "/**/*.php", ['phpUpdate']); //watch all scss files  
 });
 
 //Minify the JS code
@@ -35,7 +46,7 @@ gulp.task('minJs', function() {
 		.pipe(uglify()) //minify
 		.on('error', console.error.bind(console)) //keep it going if error
 		.pipe(rename( minifiedJsName )) //rename to min
-		.pipe(gulp.dest( minJs )) //save in min-js
+		.pipe(gulp.dest( themePath )) //save in min-js
 		.pipe(browserSync.stream()); //update browser sync
 });
 
@@ -46,7 +57,7 @@ gulp.task('scssCompile', function() {
 		.on('error', console.error.bind(console)) //keep it going if error
 		.pipe(prefix()) //auto prefix bc otherwise cross browser would be bad
 		.pipe(rename( minifiedCssName )) //rename to min
-		.pipe(gulp.dest( minCss )) //destination
+		.pipe(gulp.dest( themePath )) //destination
 		.pipe(browserSync.stream()); //update browser sync
 });
 
