@@ -6,67 +6,54 @@
 
 .g{
   --gi-gutter: -10px;
-  
+
   display: -webkit-box; display: -ms-flexbox;
   display: flex; 
-  
+
   -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; 
   flex-direction: row; 
-  
+
   -ms-flex-wrap: wrap; 
   flex-wrap: wrap;
-  
+
   -webkit-box-pack: justify; -ms-flex-pack: justify;
   justify-content: flex-start; 
-  
+
   margin-left: var(--gi-gutter);
 
   margin-top: calc(var(--gi-gutter); //The top margin of the grid will get cancelled out by the gi
   
-  .gi{
-    display: block;
-    padding-left: calc(var(--gi-gutter) * -1);
-    margin-top: calc(var(--gi-gutter) * -1); //on the first row it will cancel the margin on the others it will add a space
-    max-width: var(--calc-s);
-    word-wrap: break-word;
-    
-    --span-s: 1/1; //if not set default to full span
-    --calc-s: calc(calc(var(--span-s))*100%); //the value entered will return a percentage when multiplied by 100%
-    
-    --span: var(--span-s); //if not set default to s
-    --calc-m: calc(calc(var(--span))*100%); //the value entered will return a percentage when multiplied by 100%
-    
-    --span-l: var(--span); //if not set default to mid
-    --calc-l: calc(calc(var(--span-l))*100%); //the value entered will return a percentage when multiplied by 100%
-    
-    -ms-flex-preferred-size: var(--calc-s);
-    flex-basis: var(--calc-s); //when small use the small percentage
-    max-width: var(--calc-s);
-    /*
-      This is used if you do not have at-breakpoint included
-    
-      @media (min-width: 800px){
-        -ms-flex-preferred-size: var(--calc-m);
-        flex-basis: var(--calc-m); //when mid use the mid percentage
-      }
-      @media (min-width: 1200px){
-        -ms-flex-preferred-size: var(--calc-l);
-        flex-basis: var(--calc-l); //when large use the large percentage
-      }
-    */
+    .gi{
+      display: block;
+      padding-left: calc(var(--gi-gutter) * -1);
+      margin-top: calc(var(--gi-gutter) * -1); //on the first row it will cancel the margin on the others it will add a space
+      max-width: var(--calc-s);
+      word-wrap: break-word;
+      
+      --span-s: 1/1; //if not set default to full span
+      --calc-s: calc(calc(var(--span-s))*100%); //the value entered will return a percentage when multiplied by 100%
+      
+      --span: var(--span-s); //if not set default to s
+      --calc-m: calc(calc(var(--span))*100%); //the value entered will return a percentage when multiplied by 100%
+      
+      --span-l: var(--span); //if not set default to mid
+      --calc-l: calc(calc(var(--span-l))*100%); //the value entered will return a percentage when multiplied by 100%
+      
+      -ms-flex-preferred-size: var(--calc-s);
+      flex-basis: var(--calc-s); //when small use the small percentage
+      max-width: var(--calc-s);
    
-   @include at-breakpoint($m){
-      -ms-flex-preferred-size: var(--calc-m);
-      flex-basis: var(--calc-m); //when mid use the mid percentage
-   }
-   @include at-breakpoint($l){
-      -ms-flex-preferred-size: var(--calc-l);
-      flex-basis: var(--calc-l); //when large use the large percentage
-      max-width: var(--calc-l);
-   }
-    
-    & > *{
-      width: 100%;
+      @include at-breakpoint($m){
+          -ms-flex-preferred-size: var(--calc-m);
+          flex-basis: var(--calc-m); //when mid use the mid percentage
+      }
+      @include at-breakpoint($l){
+          -ms-flex-preferred-size: var(--calc-l);
+          flex-basis: var(--calc-l); //when large use the large percentage
+          max-width: var(--calc-l);
+      }
+      & > *{
+          width: 100%;
+      }
     }
-  }
 }
