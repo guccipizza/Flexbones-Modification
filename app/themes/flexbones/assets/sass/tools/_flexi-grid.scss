@@ -24,7 +24,7 @@
   .gi{
     display: block;
     padding-left: calc(var(--gi-gutter) * -1);
-    margin-bottom: calc(var(--gi-gutter) * -1);
+    padding-top: calc(var(--gi-gutter) * -1);
     max-width: var(--calc-s);
     word-wrap: break-word;
     
@@ -39,7 +39,7 @@
     
     -ms-flex-preferred-size: var(--calc-s);
     flex-basis: var(--calc-s); //when small use the small percentage
-    max-width: var(--calc-m);
+    max-width: var(--calc-s);
     /*
       This is used if you do not have at-breakpoint included
     
@@ -65,6 +65,9 @@
     
     & > *{
       width: 100%;
+    }
+    &:first-child{
+      padding-top: 0;
     }
   }
 }
