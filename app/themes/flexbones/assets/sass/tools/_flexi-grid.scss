@@ -20,11 +20,13 @@
   justify-content: flex-start; 
   
   margin-left: var(--gi-gutter);
+
+  margin-top: calc(var(--gi-gutter); //The top margin of the grid will get cancelled out by the gi
   
   .gi{
     display: block;
     padding-left: calc(var(--gi-gutter) * -1);
-    padding-top: calc(var(--gi-gutter) * -1);
+    margin-top: calc(var(--gi-gutter) * -1); //on the first row it will cancel the margin on the others it will add a space
     max-width: var(--calc-s);
     word-wrap: break-word;
     
@@ -65,9 +67,6 @@
     
     & > *{
       width: 100%;
-    }
-    &:first-child{
-      padding-top: 0;
     }
   }
 }
